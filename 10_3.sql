@@ -26,7 +26,7 @@ CREATE NONCLUSTERED INDEX Non_Products ON Products (UnitsInStock)
 CREATE NONCLUSTERED INDEX Non_OrderDetails ON OrderDetails (Discount)
 GO
 
---Без индекса
+
 SELECT 
 	Customers_without_index.CustomerID, 
 	EmployeeID, 
@@ -45,7 +45,7 @@ WHERE
 	  Products_without_index.UnitsInStock < 20
 GO
 
---С индексом
+
 SELECT Customers.CustomerID, EmployeeID, City, Products.ProductID, Products.UnitsInStock, OrderDetails.Discount
 FROM Customers 
 	JOIN Orders ON Customers.CustomerID = Orders.CustomerID
@@ -57,9 +57,3 @@ WHERE
 	  OrderDetails.Discount = 0 AND
 	  Products.UnitsInStock < 20
 GO
-
-
---Без индекса:    
---		Время ЦП = 547 мс, затраченное время = 1302 мс.
---С индексом:     
---		Время ЦП = 516 мс, затраченное время = 1315 мс.
