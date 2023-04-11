@@ -17,7 +17,7 @@ GO
 CREATE NONCLUSTERED INDEX Orders_nonclustered ON Orders(shippeddate, freight) INCLUDE (customerid);
 CREATE NONCLUSTERED INDEX Customer_nonclustered ON Customers(city) INCLUDE (companyname, customerid);
 GO
---Без индекса
+
 
 SELECT 
 	companyname, 
@@ -32,7 +32,7 @@ WHERE
 	AND Orders_without_index.shippeddate BETWEEN '19960101' AND '19971231'
 	AND Orders_without_index.freight > 250
 
---С индексом
+
 SELECT 
 	companyname,
 	shippeddate, 
@@ -43,9 +43,3 @@ FROM Customers
 WHERE Customers.city = 'London'
 	AND Orders.shippeddate BETWEEN '19960101' AND '19971231'
 	AND Orders.freight > 250
-
-
---Без индекса:
---		Время ЦП = 250 мс, затраченное время = 492 мс.
---С индексом:
---		Время ЦП = 0 мс, затраченное время = 267 мс.
