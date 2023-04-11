@@ -1,5 +1,3 @@
---БД "Библиотека"
---При удалении книги, удалять все записи, связанные с ней DROP TRIGGER IF EXISTS TR_bookeditors_delete
 USE LIBRARY
 GO
 
