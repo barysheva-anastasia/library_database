@@ -1,4 +1,3 @@
---- ФИО читателей, номер паспорта, количество прочитанных книг - для читателей, которые всегда приносят книги в срок.
 CREATE OR ALTER VIEW good_readers
 AS  
 	WITH bad_reader AS
@@ -32,7 +31,6 @@ GROUP BY
 	READER.passport 
 GO
 
---фамилия и имя самого активного хорошего читателя, количество прочитанных книг
 SELECT TOP(1) WITH TIES
 READER.last_name, READER.first_name, COUNT(*) AS number_of_books
 FROM READER 
