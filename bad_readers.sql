@@ -1,4 +1,3 @@
----Тема, название книги, фамилия читателя, дата возврата - для книг, у которых просрочен срок возврата, количество дней просрочки.
 CREATE OR ALTER VIEW bad_readers
 AS (
 SELECT TOPIC.name AS topic, 
@@ -20,7 +19,6 @@ WHERE (DEAL.day_x_date < DEAL.returning_date) )
 
 GO
 
----вывести названия книг, которые задерживали не менее 50% читателей
 WITH BadDeals AS
 	(
 	SELECT
