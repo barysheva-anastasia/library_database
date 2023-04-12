@@ -1,4 +1,3 @@
--- удалить из базы книги, которые утеряны больше года назад
 DELETE FROM BOOK
 WHERE BOOK.book_id IN (
 	SELECT BOOK.book_id 
