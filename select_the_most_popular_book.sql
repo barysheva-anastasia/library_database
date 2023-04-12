@@ -1,4 +1,3 @@
---- сама€ попул€рна€ книга осенью
 SELECT TOP(1) WITH TIES BOOK_TITLE.name, COUNT(*) AS number_of_books
 FROM DEAL 
 JOIN BOOK on DEAL.book_id = BOOK.book_id 
